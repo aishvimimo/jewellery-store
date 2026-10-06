@@ -1,0 +1,52 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { createHmac } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
+import { Window } from 'happy-dom';
+import { PGlite } from '@electric-sql/pglite';
+import { drizzle } from 'drizzle-orm/pglite';
+import type { NodePgDatabase } from 'drizzle-orm/node-postgres';
+import { migrateTestDb } from '../../../scripts/migrate-test-db.js';
+import { createApp } from '../../api/src/app.js';
+import { catalogueRepository } from '../../api/src/catalogue.js';
+import { orderRepository } from '../../api/src/orders.js';
+import { paymentService } from '../../api/src/payments.js';
+import type { PaymentGateway,GatewayOrder,GatewayPayment } from '../../api/src/razorpay.js';
+import { seedData } from '../../api/src/seed-data.js';
+import * as s from '../../api/src/schema.js';
+import { storageKey } from '../src/lib/basket.js';
+
+test('online checkout retries a failed attempt, waits for capture and clears purchased quantities once across reloads',{timeout:25000},async()=>{
+ const window=new Window({url:'http://localhost:4321/checkout/'}),globals=['window','document','navigator','HTMLElement','HTMLInputElement','HTMLSelectElement','MutationObserver','Event','InputEvent','localStorage','sessionStorage','getComputedStyle'];
+ const descriptors=new Map(globals.map(k=>[k,Object.getOwnPropertyDescriptor(globalThis,k)]));for(const key of globals)Object.defineProperty(globalThis,key,{value:key==='window'?window:key==='getComputedStyle'?window.getComputedStyle.bind(window):(window as any)[key],writable:true,configurable:true});
+ (globalThis as any).IS_REACT_ACT_ENVIRONMENT=true;const originalFetch=globalThis.fetch;
+ const pg=new PGlite();await migrateTestDb(pg);const db=drizzle(pg,{schema:s}) as unknown as NodePgDatabase<typeof s>;
+ await seedData(db,JSON.parse(await readFile(new URL('../../../database/seeds.json',import.meta.url),'utf8')));
+ let remote:GatewayOrder|undefined,payment:GatewayPayment|undefined,creates=0,checkoutOptions:any,failedHandler:()=>void=()=>{};
+ const gateway:PaymentGateway={keyId:'rzp_test_UI',keySecret:'test-secret',webhookSecrets:['webhook-secret-for-ui'],create:async(receipt,amount)=>{creates++;remote={id:'order_TestUI',receipt,amount,currency:'INR',notes:{local_order_id:receipt},status:'created'};return remote;},find:async()=>remote?[remote]:[],order:async()=>remote!,payment:async()=>payment!,payments:async()=>payment?[payment]:[]};
+ const orders=orderRepository(db,{mode:'test',pinPrefixes:[],onlineEnabled:true}),payments=paymentService(db,orders,gateway),app=await createApp(catalogueRepository(db),{rateLimit:false,orders,payments});
+ (window as any).Razorpay=class{constructor(options:any){checkoutOptions=options;}open(){}on(_event:string,handler:()=>void){failedHandler=handler;}};
+ globalThis.fetch=async(input,init)=>{const url=new URL(String(input));const r=await app.inject({method:(init?.method||'GET') as 'GET'|'POST',url:url.pathname+url.search,payload:init?.body?String(init.body):undefined,headers:{origin:'http://localhost:4321','content-type':'application/json',...(init?.headers as Record<string,string>)}});if(init?.signal?.aborted)throw new DOMException('Aborted','AbortError');return new Response(r.body,{status:r.statusCode,headers:{'content-type':'application/json'}});};
+ window.localStorage.setItem(storageKey,JSON.stringify({cart:[{variantId:'variant-1',slug:'tulip-bloom-box',quantity:1}],wishlist:[]}));
+ const {createElement:h,act}=await import('react'),{createRoot}=await import('react-dom/client'),{default:Checkout}=await import('../src/components/Checkout.js');const container=window.document.createElement('div');window.document.body.append(container);const root=createRoot(container as any);
+ const settle=async(check:()=>boolean)=>{for(let i=0;i<150;i++){await act(async()=>{await new Promise(r=>setTimeout(r,10));});if(check())return;}assert.fail('Payment UI did not reach expected state: '+container.textContent);};
+ const fill=async(label:string,value:string)=>{const input=[...container.querySelectorAll('label')].find(l=>l.textContent?.startsWith(label))?.querySelector('input');assert.ok(input);await act(async()=>{Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value')!.set!.call(input,value);input.dispatchEvent(new window.Event('input',{bubbles:true}));});};
+ const button=(text:string)=>[...container.querySelectorAll('button')].find(b=>b.textContent?.includes(text))!;
+ try{
+  await act(async()=>root.render(h(Checkout,{})));await settle(()=>!!container.querySelector('#checkout-form')&&container.textContent?.includes('₹878')===true);
+  for(const [label,value] of [['Full name','Payment Customer'],['Email','customer@example.test'],['Mobile number','9876543210'],['Address line 1','123 Test Road'],['City','Bengaluru'],['State','Karnataka'],['PIN code','560001']])await fill(label,value);
+  const method=[...container.querySelectorAll('label')].find(l=>l.textContent?.startsWith('Payment method'))!.querySelector('select')!;
+  await act(async()=>{method.value='online';method.dispatchEvent(new window.Event('change',{bubbles:true}));});await settle(()=>container.textContent?.includes('₹838.05')===true);
+  await act(async()=>container.querySelector('#checkout-form')!.dispatchEvent(new window.Event('submit',{bubbles:true,cancelable:true})));
+  await settle(()=>!!button('Pay with Razorpay'));assert.equal(JSON.parse(window.localStorage.getItem(storageKey)!).cart.length,1);
+  await act(async()=>button('Pay with Razorpay').click());await settle(()=>!!checkoutOptions);assert.equal(checkoutOptions.key,gateway.keyId);assert.equal(checkoutOptions.amount,83805);
+  await act(async()=>{failedHandler();checkoutOptions.modal.ondismiss();});assert.ok(container.textContent?.includes('Checkout closed'));
+  checkoutOptions=undefined;await act(async()=>button('Pay with Razorpay').click());await settle(()=>!!checkoutOptions);assert.equal(creates,1);
+  payment={id:'pay_TestUI',order_id:remote!.id,amount:83805,currency:'INR',status:'authorized',captured:false,amount_refunded:0};
+  await act(async()=>checkoutOptions.handler({razorpay_order_id:remote!.id,razorpay_payment_id:payment!.id,razorpay_signature:createHmac('sha256',gateway.keySecret).update(remote!.id+'|'+payment!.id).digest('hex')}));
+  assert.equal((await db.select().from(s.orders))[0].paymentStatus,'pending');assert.equal(JSON.parse(window.localStorage.getItem(storageKey)!).cart.length,1);
+  payment.status='captured';payment.captured=true;remote!.status='paid';await act(async()=>button('Check payment status').click());await settle(()=>container.textContent?.includes('Payment: paid')===true);
+  const saved=JSON.parse(window.localStorage.getItem(storageKey)!);assert.deepEqual(saved.cart,[]);assert.equal(saved.completedOrders.length,1);saved.cart=[{variantId:'variant-1',slug:'tulip-bloom-box',quantity:1}];window.localStorage.setItem(storageKey,JSON.stringify(saved));
+  await act(async()=>root.render(null));await act(async()=>root.render(h(Checkout,{})));await settle(()=>container.textContent?.includes('Payment: paid')===true);assert.equal(JSON.parse(window.localStorage.getItem(storageKey)!).cart[0].quantity,1);
+ }finally{await act(async()=>root.unmount());await app.close();await pg.close();globalThis.fetch=originalFetch;for(const key of globals){const d=descriptors.get(key);if(d)Object.defineProperty(globalThis,key,d);else delete (globalThis as any)[key];}delete (globalThis as any).IS_REACT_ACT_ENVIRONMENT;await window.happyDOM.close();}
+});

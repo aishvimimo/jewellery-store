@@ -1,0 +1,11 @@
+---
+import home from '../lib/home.json';
+---
+<section class="inspired page-section" id="inspired"><div class="section-heading"><div><p class="eyebrow">Little details. Beautiful moments.</p><h2>Get <em>Inspired</em></h2></div><div class="carousel-controls"><button data-scroll="inspiration" data-direction="-1" aria-label="Previous inspiration photos">←</button><button data-scroll="inspiration" data-direction="1" aria-label="Next inspiration photos">→</button></div></div><p>Discover jewellery styling from our design references.</p><div class="inspiration-gallery" id="inspiration">{home.inspiration.map((item,i)=><a href={'/shop/?category='+(i%2?'rings':'jewellery-sets')}><img src={item.image} alt={item.alt} loading="lazy" width="380" height="490"/><span>Explore jewellery</span></a>)}</div></section>
+<section class="reviews page-section"><div class="section-heading"><h2>Customer reviews</h2><div class="carousel-controls"><button data-scroll="review-gallery" data-direction="-1" aria-label="Previous reviews">←</button><button data-scroll="review-gallery" data-direction="1" aria-label="Next reviews">→</button></div></div><p class="muted">Design placeholders · publish verified customer reviews here.</p><div class="review-gallery" id="review-gallery">{home.reviews.map(r=><article class="review"><img src={r.image} alt="Reference review portrait" width="76" height="76" loading="lazy"/><h3>{r.title}</h3><p>A genuine customer’s experience with quality, comfort and design will appear here.</p><div class="stars" aria-label="Sample five-star rating">★★★★★</div><p class="muted">Customer review placeholder</p></article>)}</div></section>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-scroll]').forEach(button=>button.addEventListener('click',()=>{
+    const gallery=document.getElementById(button.dataset.scroll!);
+    gallery?.scrollBy({left:(gallery.clientWidth*.8)*Number(button.dataset.direction),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+  }));
+</script>

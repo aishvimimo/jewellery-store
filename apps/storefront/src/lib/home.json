@@ -1,0 +1,82 @@
+{
+  "hero": "/assets/e1b66c5c337695e8.webp",
+  "categories": [
+    {
+      "name": "Jewellery Sets",
+      "image": "/assets/c21bb07120e49c0f.webp"
+    },
+    {
+      "name": "Earrings",
+      "image": "/assets/674baca1965cd57c.webp"
+    },
+    {
+      "name": "Rings",
+      "image": "/assets/64abb01f695f00b8.webp"
+    },
+    {
+      "name": "Bangles & Bracelet",
+      "image": "/assets/832b8069457d77f8.webp"
+    },
+    {
+      "name": "Pendants",
+      "image": "/assets/e98e0d770fe65809.webp"
+    },
+    {
+      "name": "Mangalsutra",
+      "image": "/assets/a837dc2436df1b2a.webp"
+    },
+    {
+      "name": "Silver Jewellery",
+      "image": "/assets/516a68b380d38b96.webp"
+    },
+    {
+      "name": "Lab Grown Diamonds",
+      "image": "/assets/7dd1b2d8f6335c56.webp"
+    },
+    {
+      "name": "Nose Pin",
+      "image": "/assets/24050cc09ce34f55.webp"
+    }
+  ],
+  "inspiration": [
+    {
+      "image": "/assets/e0353528fd2a1f9b.webp",
+      "alt": "Monkey Business Hoop Earrings worn in an ear stack"
+    },
+    {
+      "image": "/assets/27b1395a44e90f64.webp",
+      "alt": "Alba Verde Ring styled with other rings"
+    },
+    {
+      "image": "/assets/571aafa4346eee6e.webp",
+      "alt": "Pierrot Ring worn on a hand"
+    },
+    {
+      "image": "/assets/d0f05870c39056e2.webp",
+      "alt": "Single Starwhisper Huggie in a layered ear look"
+    },
+    {
+      "image": "/assets/c05216596286e071.webp",
+      "alt": "Another ear styling with Monkey Business Hoop Earrings"
+    }
+  ],
+  "reviews": [
+    {
+      "image": "/assets/b6dffc1567df6052.webp",
+      "title": "Loved it..!"
+    },
+    {
+      "image": "/assets/f129cb4e23618311.webp",
+      "title": "Woww..!"
+    },
+    {
+      "image": "/assets/7350c774b8c89783.webp",
+      "title": "Very Good Quality..!"
+    },
+    {
+      "image": "/assets/a412d97912c3ed8c.webp",
+      "title": "In love..!!!"
+    }
+  ],
+  "boutiques": "/assets/ff050e6c0c4ae2dd.webp"
+}

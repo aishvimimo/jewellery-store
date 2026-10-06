@@ -1,0 +1,27 @@
+{
+  "name": "jewellery-store",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm run dev -w @store/api\" \"npm run dev -w @store/storefront\"",
+    "build": "npm run build -w @store/contracts && npm run build -w @store/api && npm run build -w @store/storefront",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test -w @store/api && npm run test -w @store/storefront",
+    "db:migrate": "npm run db:migrate -w @store/api",
+    "db:seed": "npm run db:seed -w @store/api",
+    "verify:build": "node scripts/verify-build.mjs",
+    "admin:create": "npm run admin:create -w @store/api",
+    "admin:reset-password": "npm run admin:reset-password -w @store/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3"
+  }
+}

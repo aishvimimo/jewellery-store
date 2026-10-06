@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Catalogue from '../components/Catalogue';
+import { buildCatalogue, buildFacets } from '../lib/catalogue-build';
+const [products,facets]=await Promise.all([buildCatalogue(),buildFacets()]);
+---
+<Layout title="Shop jewellery"><div class="page-section page-heading"><p class="eyebrow">A little sparkle, every day</p><h1>Shop jewellery</h1><p>Explore, filter and find your favourites.</p></div><Catalogue initial={products} facets={facets} client:load/></Layout>

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /wishlist/
+Disallow: /admin/
+Disallow: /preview-product/

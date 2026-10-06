@@ -1,0 +1,6 @@
+---
+import home from '../lib/home.json';
+const categoryLinks:Record<string,string>={'Jewellery Sets':'jewellery-sets','Earrings':'earrings','Rings':'rings','Bangles & Bracelet':'bracelets','Pendants':'necklaces','Mangalsutra':'necklaces'};
+---
+<section class="hero" aria-label="Jewellery campaign"><a href="/shop/"><img src={home.hero} alt="Jewellery campaign from the approved design reference" width="1600" height="620" fetchpriority="high" /></a><div class="hero-caption"><a class="primary" href="/shop/">Explore the collection</a></div></section>
+<section class="categories" aria-label="Shop jewellery categories">{home.categories.slice(0,6).map(c=><a href={'/shop/?category='+categoryLinks[c.name]}><img src={c.image} alt={c.name} width="180" height="180" loading="lazy"/><h2>{c.name}</h2></a>)}</section>

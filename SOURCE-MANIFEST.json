@@ -1,0 +1,658 @@
+{
+  "snapshot_date": "2026-10-06",
+  "description": "Secret-free source and handover; local Windows database/config/media not included",
+  "files": [
+    {
+      "path": "jewellery-store/.dockerignore",
+      "sha256": "bb290544cbc74e591fccda43d113714dab3cbf0ddd001d2fac43f1706e31bfb1"
+    },
+    {
+      "path": "jewellery-store/.github/workflows/ci.yml",
+      "sha256": "69fe6a98075146fe221dd74d3d1a44cae6d9044d7a0c9b2ea6bbb614913511a1"
+    },
+    {
+      "path": "jewellery-store/.gitignore",
+      "sha256": "d0728e99306caeeb6f12231cdb2de26ccb8140cd02077625e79dfd1f1357bedb"
+    },
+    {
+      "path": "jewellery-store/.nvmrc",
+      "sha256": "68ca3fba3b7e864770cb61aeb306d4bd4354b68ab4dd38450860c5d823e42a53"
+    },
+    {
+      "path": "jewellery-store/ACCOUNTS-EMAILS-RETURNS-UPDATE.md",
+      "sha256": "c2d78876294775b729500cd259d0e818f77fe280c476d92e0d0507f359b5d9d8"
+    },
+    {
+      "path": "jewellery-store/ADMIN-UPDATE.md",
+      "sha256": "a1cc7d6d663fb6f24cd1422411e35b69c93a936bf64452fbbd937efa7aed5560"
+    },
+    {
+      "path": "jewellery-store/CUSTOMER-ORDERS-UPDATE.md",
+      "sha256": "24e85ce4b7c31246842e95f8ae3f1e41f2dfc046be7179fd87cce38c50123f37"
+    },
+    {
+      "path": "jewellery-store/Create-Handover-Zip.ps1",
+      "sha256": "09fc76e0ee16e1ecf556cef952f6399e38ff62bb9c3ac707802a581d59df86cd"
+    },
+    {
+      "path": "jewellery-store/Dockerfile.api",
+      "sha256": "d8de41652d3c7ffe561fc0dcf7417ed600368e502acc1b01ba4cb97616d8f7f6"
+    },
+    {
+      "path": "jewellery-store/ORDERS-UPDATE.md",
+      "sha256": "533d7900ef67eb76ce00254d9cb9bb11d2af5a8a8bedd3646a49b614ef397660"
+    },
+    {
+      "path": "jewellery-store/PAYMENTS-UPDATE.md",
+      "sha256": "505ad12356c2f704ccfbeb977626966ade895b7163d2c967322dc376aac946a0"
+    },
+    {
+      "path": "jewellery-store/PROJECT-HANDOVER.md",
+      "sha256": "a34764c03d82bb6d8a734051a229bb7cf9f9b2e3f3a7a22aef27b16685193532"
+    },
+    {
+      "path": "jewellery-store/README.md",
+      "sha256": "5c0d96b8530de84fd4e07200e8c024313b60d7ad517211b0507b70b44f3292b7"
+    },
+    {
+      "path": "jewellery-store/RESUME-PROMPT.txt",
+      "sha256": "2dc1e7f2e983309ca28b928953f4635830a3d0a74608e60d55334c559f242ecd"
+    },
+    {
+      "path": "jewellery-store/Update-Project.ps1",
+      "sha256": "f5b812af4cbdee895b0da57c505d85a23a14c419b8fcf573a609921977889b09"
+    },
+    {
+      "path": "jewellery-store/VALIDATION.md",
+      "sha256": "042c0f268430839b5a6568f7dd80d778436c23b8380770ce82b33d0429763bc7"
+    },
+    {
+      "path": "jewellery-store/apps/api/.env.example",
+      "sha256": "77192beb5d359aea5f7d68aee1a174d5cc2dd614a7b932f2529fd17a076c0408"
+    },
+    {
+      "path": "jewellery-store/apps/api/package.json",
+      "sha256": "fcc515eb08e52dbba80017ec75f114ea6f4ee32e8f9394a0899d999d3ad4d188"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/admin-cli.ts",
+      "sha256": "e322504a05df7a1d0e0ee7ed4e92b208d8348ddcfb95ec60fb63c1636a4e1348"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/admin-repository.ts",
+      "sha256": "9887f3afcb45893c63c274ecc8bc31ad5afb52b1a61de4537f4d055dd6455eef"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/admin-routes.ts",
+      "sha256": "560c42765f739a29051ffcc095924aa2c61ea56e47267f714b9f6d3d2a3843e3"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/app.ts",
+      "sha256": "cc60beb61d464d016ebd3ac0639052fe1e6be439bff15bb3a3479cf677e704ee"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/catalogue.ts",
+      "sha256": "78b2b5dc74813399b63571cc01db295fb7b372622319868744c3a1dc7ef92097"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/customer-routes.ts",
+      "sha256": "f8f566448e6a52ee982c3f3ed0442fe74a1230ee43d473b6e2377050d0544e8f"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/customers.ts",
+      "sha256": "c9616c78c61366389a9f8d94c4d46740b61fea00cdadabe349deacaa3671dd0f"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/db.ts",
+      "sha256": "4e3736d92d656ed9b3595ba88ab3ba9509f384a4083c5b32f1968d8818b7c6c1"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/email.ts",
+      "sha256": "3ba1827714e8cbb0ba80632fc8a758756230079fb069244948e0c87d77894758"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/env.ts",
+      "sha256": "4ff68aaa668854a83204508bc23b59d4f8580672a83f95c7ef472fab812e2bb1"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/media.ts",
+      "sha256": "57502ef65d79edf7706c3630e5c12f401c94fe6d8eeec71f8fe8275f1f3d2173"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/migrate.ts",
+      "sha256": "fc1d530c0a268c04b0512017b3bcebbac74987143e9426254de5e4ae637a9ad0"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/order-routes.ts",
+      "sha256": "b4ad909e17b0c00e64bfb2fd1b46e1363fe5007dfab0e0aed15853e0bce2be30"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/orders.ts",
+      "sha256": "9edebd78d4d77cf5391a7492bb0c081fdb65d75ab206a48aab6f8f0962e2082c"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/password.ts",
+      "sha256": "403b3a55a8d91a0c322b25bfb6f16c44ab3ed53490e23c4751d7949d9f2f1309"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/payment-routes.ts",
+      "sha256": "425a16b4e608019d6b8ebe2165f62988747c2499e56f98d39dda804533dad1f9"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/payments.ts",
+      "sha256": "868bc8fcd63cf3cec724ddab58fbe08448faae50d417f79c27cc85c67675f8ec"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/quote.ts",
+      "sha256": "b6ccaa06ce0ef88802de8aaf9d61cf326a90aa9a268c48cdcc732239bf2051f5"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/razorpay.ts",
+      "sha256": "c0c26bc0a9341c137f1431aa2aa37681581fd7e165554b588c1303aeab9f5882"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/returns.ts",
+      "sha256": "5dc2de9006b4318247c8ba358d6c9259b3375669251f116a9efdb87bc2c89d54"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/schema.ts",
+      "sha256": "2a42f5fbaea1e24e2f2f1d5c85b6786aa79c1233b5994b3e42df2aeb882bcd90"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/seed-data.ts",
+      "sha256": "2c512bbd337fc741d0b5e17081baa5e6fe2e15e45061fa67c5be8fc9a42b8286"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/seed.ts",
+      "sha256": "5b0f5405768ed87407d7fa5431b8353237a526f7a95bc39d67b51ef0334b769d"
+    },
+    {
+      "path": "jewellery-store/apps/api/src/server.ts",
+      "sha256": "6e0f34787f9e06dc2ff6451136d5b87c413ff6ae062ca762ba22221116d7dcf8"
+    },
+    {
+      "path": "jewellery-store/apps/api/test/accounts-returns.test.ts",
+      "sha256": "7ee9b25d1e88916b33187c6f2db86dcd57ab55bd4f1ba2c4516a904783aa364b"
+    },
+    {
+      "path": "jewellery-store/apps/api/test/admin.test.ts",
+      "sha256": "db6dedf5111040821504103947a1db770cb6aef8198d64dc8c4da6eae3a78387"
+    },
+    {
+      "path": "jewellery-store/apps/api/test/integration.test.ts",
+      "sha256": "7b711f8236d22f8ce8d727ed657b3c5fcedd083a0696ce74edec35061c9ba923"
+    },
+    {
+      "path": "jewellery-store/apps/api/test/orders.test.ts",
+      "sha256": "403261a8ed1cb4e939b72bbb5891205ec181b8544795eca3ceef321fcf329d2c"
+    },
+    {
+      "path": "jewellery-store/apps/api/test/payments.test.ts",
+      "sha256": "f20cd2b0176a04d3b4514c329963dd13699b2b31c59a31e07e1043de202220a2"
+    },
+    {
+      "path": "jewellery-store/apps/api/tsconfig.json",
+      "sha256": "5006597426b83613c46166f198f9c9cb408a0983f7afda5b64a2bf4b5e6c14cb"
+    },
+    {
+      "path": "jewellery-store/apps/api/tsup.config.ts",
+      "sha256": "97804598a02234b9f381f8131a26a3b19719681964b88c88b31b56f8fc35031f"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/.env.example",
+      "sha256": "f50c2fb84bf9d60b21da9b646357a21fb813a008eebdc8c0d62e76916c501de0"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/astro.config.mjs",
+      "sha256": "95c013ecd91006ba40c7b153523a7a512cf39dc4485621473b4ab2940e3f252f"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/package.json",
+      "sha256": "914fd284698a9311d438edcdfa0fc4ef757cc4d8d3926f61e83833b06d065da1"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/_headers",
+      "sha256": "f4bc32a84d5c6fb871053ce3ff57f46b1aa64819f12588d68d6bc75ac6e52826"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/068139b639e68de3.webp",
+      "sha256": "068139b639e68de37668d367ecc0964fd2e5db7c09cd6480c509b329585a33f2"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/0acaf5accf847cb9.webp",
+      "sha256": "0acaf5accf847cb929ea7d2f9384a25e517378d355dd83b64c6841257d91f7b0"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/1567bb851a3dec60.webp",
+      "sha256": "1567bb851a3dec604e082c938a1f503983786783993395b6bc3b39f01dde3cf0"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/20ef9597d34a2e64.webp",
+      "sha256": "20ef9597d34a2e6479be257cd3ac4ec8b8be144caf35090a198fae86030e7497"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/24050cc09ce34f55.webp",
+      "sha256": "24050cc09ce34f55913ce026a23a4a823faa4243ba269ccb556377c9d493b2d7"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/27b1395a44e90f64.webp",
+      "sha256": "27b1395a44e90f64eb2a32c41778451e71e35ad08cfb945eb4eaccd975fffa3b"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/31d876b0c5231918.webp",
+      "sha256": "31d876b0c5231918bc5f4755e53c91f4bd288a3db511ac8694fa2e45ca1b9588"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/42f64ac4f1078a5d.webp",
+      "sha256": "42f64ac4f1078a5d93c333b02ee3f676975d30303295ca5dd41f8035b2891439"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/4c33fd4fbf33961b.webp",
+      "sha256": "4c33fd4fbf33961bed8fba1e74bf1262f00f940390eda5e5b3a29db9dba549c0"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/516a68b380d38b96.webp",
+      "sha256": "516a68b380d38b96c1eef829370628db40bb44fb9d7fa769acbb78dbff0cee9c"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/571aafa4346eee6e.webp",
+      "sha256": "571aafa4346eee6ea95187715644ac9fe39aab039d43890bbd0f453154b1e201"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/64abb01f695f00b8.webp",
+      "sha256": "64abb01f695f00b8e20c301ef7f84e3bb9049a3fe25765fc1374d0c745218819"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/674baca1965cd57c.webp",
+      "sha256": "674baca1965cd57cccddbcc6e81cbefe1bd9301a0cd7767f2adf31770bb1e111"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/6f76e7e7a68a78e4.webp",
+      "sha256": "6f76e7e7a68a78e4b70db9dad9e36efdd93627c045fca31b0adf2aaf086789d7"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/7350c774b8c89783.webp",
+      "sha256": "7350c774b8c89783cecbccb593163a19060c4192a176c922234a7b902933a4d5"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/7dd1b2d8f6335c56.webp",
+      "sha256": "7dd1b2d8f6335c56f9f0bb103bf318ea0999693ad0844cf8168210b04182566f"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/832b8069457d77f8.webp",
+      "sha256": "832b8069457d77f817f915d85053fcf999523fdfd178a514416d685e257fe1e7"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/913f75f64dee37d8.webp",
+      "sha256": "913f75f64dee37d8b189943a9196f8f7c410b88772db6ea0410f42bc57f21580"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/a412d97912c3ed8c.webp",
+      "sha256": "a412d97912c3ed8c036e1b6ca3bd56eced99c98c4b26c58e9fc606bf1bc30c5f"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/a837dc2436df1b2a.webp",
+      "sha256": "a837dc2436df1b2a9c6a723165b684ed6e4c4da347299301e1d8db3fd7fac06f"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/aa6f72b3cbc956b5.webp",
+      "sha256": "aa6f72b3cbc956b5e15eab58dc1758dc5c94156613e459ae5ce74113bb1237e2"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/b6dffc1567df6052.webp",
+      "sha256": "b6dffc1567df60526829f16b817456e0215155a13f39617bcb7fc84892e0665a"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/bbcd28df9e390784.webp",
+      "sha256": "bbcd28df9e3907847f35521b57a1d680f43d8471edaa27bd7dbf37d4e32dd42a"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/c05216596286e071.webp",
+      "sha256": "c05216596286e071b8129aa37aa763e99bf4e1105bbed0ac2b2fd12a02f5ea43"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/c21bb07120e49c0f.webp",
+      "sha256": "c21bb07120e49c0f5db723dba4580828b9342466bef399b879659b8c0dae5f98"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/c21e5a8b1bdb6544.webp",
+      "sha256": "c21e5a8b1bdb6544f7abf3cfa7452444c114caac56fd5f1fe4d3ce26328fb5f4"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/ca4f90a4e845c808.webp",
+      "sha256": "ca4f90a4e845c808c8436f5c753fed45aec97d9409d05ae5a550f9dc89788388"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/d0f05870c39056e2.webp",
+      "sha256": "d0f05870c39056e2f0725753439ea156e47af5c6b23de1f0f8c895f25e95e5ed"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/dbce3e6c3284879f.webp",
+      "sha256": "dbce3e6c3284879f41ff37617474ba333a01eea59bf6d291df44d50e8684c415"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/dce85e9d511a601d.webp",
+      "sha256": "dce85e9d511a601d3cac23ef22ff99ab3f1f5d8cad5554bcd4c3cd4a6415eb2d"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/e0353528fd2a1f9b.webp",
+      "sha256": "e0353528fd2a1f9b61acbc1682dd2bc40816da727665b15b48d79625b261d7eb"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/e0eb5cde30ba3b4f.webp",
+      "sha256": "e0eb5cde30ba3b4fc4182016a98b52ef3acc675dda66976051364e6a2a6da515"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/e1b66c5c337695e8.webp",
+      "sha256": "e1b66c5c337695e8def26f1c31b8caf0d283dcac7a228b1628abc2a96acc1627"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/e39b619ffeca9ca4.webp",
+      "sha256": "e39b619ffeca9ca496a27a577cdba88d373c66c76e5fb98ee9ce6f455d843cbb"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/e3eed981dcdde5d6.webp",
+      "sha256": "e3eed981dcdde5d695e40e4fb226927dd55b1f855b0484e2271ca8cc1a9ad6d2"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/e98e0d770fe65809.webp",
+      "sha256": "e98e0d770fe65809c68b84c1ed25d36d7b8106ae0a57893ac83d8ecfa4baebf8"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/f129cb4e23618311.webp",
+      "sha256": "f129cb4e236183113bcd591a502dfc9bf095d12a559d159f1c0c12b5d3a5425a"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/fe2681ded92355a9.webp",
+      "sha256": "fe2681ded92355a9202f328b850e08a96ace76db3a639b9341157a9ff191287a"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/assets/ff050e6c0c4ae2dd.webp",
+      "sha256": "ff050e6c0c4ae2ddf1c3fdbe04ed9fb1603831f906c6885a3900d576b0fb5c4f"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/placeholder.svg",
+      "sha256": "83192b001ce9787706b121daf8ce94d063752b21600253f49a9adfcb6dca3b85"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/public/robots.txt",
+      "sha256": "6d1f32471051832705c97c51bf831b548f1826c731b5333e1542addabc6fda02"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/AdminApp.tsx",
+      "sha256": "66c0b45c5456c3af9a07fa40d3bdf83b5ac16cdce93882394b12f3f7acea7fe1"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/AdminEmails.tsx",
+      "sha256": "e6ba3a190683b007f4bca428aa9dfea0a761b79721bc8106b17c453f57615414"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/AdminOrders.tsx",
+      "sha256": "71c56f5c8b648d2e0de027e4dc0bf06ac18993c2f732e3508fbe329b0c8e03fd"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/AdminProductEditor.tsx",
+      "sha256": "c6c63cc84a8d4005d75d6bb13996eaf054d7a0307178e9a9ef9ac7030eeda336"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/AdminReturns.tsx",
+      "sha256": "c2a806b883cad5869d12ff8be9dbdbe072281f077c7d2bdf4221905bf381840b"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Cart.tsx",
+      "sha256": "37a178881f5d92b95c9294ca48a036ff1eab3dba90672ea28c3849a4d0d9b9a4"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Catalogue.tsx",
+      "sha256": "69d40c9ef821e9482d7716aeaccf14257e51ca6e33f2cbb13d4c7e98ebb31cf2"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Checkout.tsx",
+      "sha256": "f7ef1fa03513d3eb776d4980ef427da57d7ef17cacf619a6f23e7a3eac6f07c0"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Collections.astro",
+      "sha256": "e63a12fa8ce945dc30a5d1ccf974c322c83f0020011db74456a71814093e624d"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Community.astro",
+      "sha256": "27d07402c64b768bad80fabacf5f7e1954bd0c71ab38c23f26d825b3e9363d3d"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/CustomerAccount.tsx",
+      "sha256": "abf86ec932057115cb8dd82c4fdbcb358a86caeaa1bae08c4ffc10a43c4e399f"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Footer.astro",
+      "sha256": "cb8e396529ad80a560a3e2c4420caab7d7d326ba0b89b5b86414599cf18b0590"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Header.tsx",
+      "sha256": "52bfb6de06eb874e4fd5aa4757fb329686300c9be7543fc2d1ea3045c7be35be"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/LiveProduct.tsx",
+      "sha256": "3432f9d38809f3611e7bbf1e06d30a8750f388d0c793bbd25bc9cbe290050a96"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/MyOrders.tsx",
+      "sha256": "725d54a0dd29e975e6a177c4bef72bf1c588aab7b18d8d64fa895e4c32d6c3ff"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Offers.tsx",
+      "sha256": "5b8323920d67865f7d5e5d3c9532ad4c081855837c9092895471ed82f0981023"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/OnlinePayment.tsx",
+      "sha256": "411a5d8c103834772c33be59ff28d04a642aa8a4628978247eb0b15b055f3cc2"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/ProductCard.tsx",
+      "sha256": "6d904acf83e29545c4cad646c6b4b3dc2825b8fa775fc212d6fced9da8225e07"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/ProductDetail.tsx",
+      "sha256": "aeda763e20efe39d80f5409262791ce07093b63284ff9ae845de7301f060ecdd"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/ReturnPanel.tsx",
+      "sha256": "892939164192139d0fc0e9aee0f7244d13b532686455c47bf1d3150c91148038"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/components/Wishlist.tsx",
+      "sha256": "db607b478102bbe7f5dd320cf008e4b036be68ceaabd6f413407dc030636e763"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/layouts/Layout.astro",
+      "sha256": "37f0416590e962ea7bf48c2b245da75c216e04388c938bb3f22ca87de7e13172"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/admin-api.ts",
+      "sha256": "6b3ccd102209d9fb2aa3667e86c1bb5f314e70474761996b9857d8d4d706d046"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/api.ts",
+      "sha256": "d90fee224151d81b923c3b5e65a17797879c3dd3ad05901c9c3e04e4ae0f4417"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/basket.ts",
+      "sha256": "03a95e6514ace3fbce58e104e03ecbef03caf120168af074b080a54f2f25857c"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/catalogue-build.ts",
+      "sha256": "671ab24413bfa4fe5ef4001bf026a32b24de81dc8bebc923d668a446ab0f2fad"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/customer-api.ts",
+      "sha256": "062bcf3522241f63d8d706af90ab252416c8d1b3be3c921f78909a89191c9cbf"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/home.json",
+      "sha256": "52d7462103c574febf459b2a71d404dde43982debda4a40821985c3a76138c8e"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/order-history.ts",
+      "sha256": "557302fb6686fea42324a0f84432042255d2e9172a64f8d3f06e8dfeeccb0ef2"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/razorpay.ts",
+      "sha256": "41f4f97fb934b8433803edd11e8a653ee3a200ecbb5be5f50c9bb7e498985243"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/lib/useBasket.ts",
+      "sha256": "631420fdc20e4c65aab9f016b46023f0ccb694560dbd0b524d58399c78322adc"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/404.astro",
+      "sha256": "7dd5225131ff623924699444922170877317cfd8d7e97fd1ec36d8d362c7c865"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/account.astro",
+      "sha256": "73a38ea4393dcbad525e0036f6a8bc317677defbf046f499fb79866849ce1741"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/admin.astro",
+      "sha256": "8c42328105d85b288c64dd841d5aba40cc6a58b013f05cdf587222ffd2c10087"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/cart.astro",
+      "sha256": "56c05bbdcdcdc2fbadf1641575d51b840fb6e52600c613e0b8a8bf8b78973948"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/checkout.astro",
+      "sha256": "b6bf4650167523348228093bf6925e5366429e82162c6ff77e0dbd8deb2858ec"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/help.astro",
+      "sha256": "c164af89a2ca6c89e8985e4d32350e7d4ff1691c6daa49a082257cf92ccda0dc"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/index.astro",
+      "sha256": "b04f120f31fb6827521ca2b82a6e50fe3319b55eacdfa593b073544ba758dc1b"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/orders.astro",
+      "sha256": "69cc4ed8a9604bab2b14e40434a62784e0ad52808dadb355b547365d433c7389"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/preview-product.astro",
+      "sha256": "da3694e1e7737411a815616c552ea1bc425715c1d510f511772d0a3e5880694c"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/products/[slug].astro",
+      "sha256": "933010ee0e52adc0bde45a856924753978e1ae7a458af88f1f173e361461eb0e"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/shop.astro",
+      "sha256": "cf3aa45f41dfe8156ffbd45527d1ef59f763fe12b84b8b11359bc82c2cf59931"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/pages/wishlist.astro",
+      "sha256": "04c402b046596f1addee341c150a4847d4394dfaf068561d58bb0de29cfe62c3"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/styles/admin.css",
+      "sha256": "50444048ef92751e695249886fbce26546e9b23e4b0ff110fa93535bf4e9f5e4"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/src/styles/global.css",
+      "sha256": "7fa7cdd4c26b42cedb04947e33ed1f937e786fbe46764d1bc7b2d86989437069"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/test/account-flow.test.ts",
+      "sha256": "b90be50078a548717a408ac77722da374007e224c5314cf95fab5fbb9b7f28ef"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/test/admin-flow.test.ts",
+      "sha256": "242aa8531ffc1403d006ee42fc17ba3e2defa9f21cc08a9cee0d61b5622377e4"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/test/basket.test.ts",
+      "sha256": "f8da8a6b6818b3c5f8419f67562d0066de90bddb16425a694ef77543cb0f6b50"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/test/order-flow.test.ts",
+      "sha256": "1b0b35a21a95e9609c74651f0ec6aafe5a6c929203190fd960673d8de8c676bc"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/test/order-history.test.ts",
+      "sha256": "8640c8c8d6032f7eaf6b03cd7dc26989e4a58bec36b54ae5920d83ab48a80f7f"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/test/payment-flow.test.ts",
+      "sha256": "3d9dfc8452c842162fd22057f5a8dacd4fa58407b3518adde34e0b6882af98ef"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/test/shopping-flow.test.ts",
+      "sha256": "d362dd7819cd809f8e69447be39c4befe6105992551b5ee524dfd1ede3c4dbfc"
+    },
+    {
+      "path": "jewellery-store/apps/storefront/tsconfig.json",
+      "sha256": "82f830e32a785df40fb681df599acc3f1a9dc9c90f86f2163941aa3f663cf82c"
+    },
+    {
+      "path": "jewellery-store/database/migrations/001_catalogue.sql",
+      "sha256": "a5c3f8046fb5e33b191f3374fa470564c78f77986e132b352232a7fb0388568d"
+    },
+    {
+      "path": "jewellery-store/database/migrations/002_admin.sql",
+      "sha256": "ad4d32e15d0ebb149232f0ff44bfca1906890be14d36beecc08d91c2bb91d6f1"
+    },
+    {
+      "path": "jewellery-store/database/migrations/003_orders.sql",
+      "sha256": "0bdd1334a4ba32f2afb2ba8d65c3a344f7986658009179475cce1b4e63397dcf"
+    },
+    {
+      "path": "jewellery-store/database/migrations/004_payments.sql",
+      "sha256": "a46481506cfe392ebf20d17c16de160a208038b05f03ecfeb1d9a799fa447071"
+    },
+    {
+      "path": "jewellery-store/database/migrations/005_accounts_returns.sql",
+      "sha256": "8dc1507daa8779726cb68a1630bf97bbb87adf65efc4105d41b019300c92ebe3"
+    },
+    {
+      "path": "jewellery-store/database/seeds.json",
+      "sha256": "b79249a6c8feeafeeb032629755285008aea493d71bc2212d3494004d3c20923"
+    },
+    {
+      "path": "jewellery-store/docker-compose.yml",
+      "sha256": "77503a0d89a8e91af7f44a5209793f674b326c8f248718c582079aeb2ed5b4cc"
+    },
+    {
+      "path": "jewellery-store/package-lock.json",
+      "sha256": "2859c3f4a7d42b3ae718383b1148354489c42fa8ce074da7fbeed5955e49da73"
+    },
+    {
+      "path": "jewellery-store/package.json",
+      "sha256": "7518fbc365c92f57a764228b1e89979b37e9dc5d9b78e3a0ed4a9ac1fcb58a50"
+    },
+    {
+      "path": "jewellery-store/packages/contracts/package.json",
+      "sha256": "70d091778be52e2db2d8d86e45bef3abf3dfcf27456ba2ea0a5e319641808a57"
+    },
+    {
+      "path": "jewellery-store/packages/contracts/src/index.ts",
+      "sha256": "1191d7e0ee8345bfab3e88c2db6489a5575c11af85495dd3e49de5e04efcf6f7"
+    },
+    {
+      "path": "jewellery-store/packages/contracts/tsconfig.json",
+      "sha256": "02262992805104b2a35c170c43d7bc6ec5e878b4e92629a0766ad896518c6573"
+    },
+    {
+      "path": "jewellery-store/railway.json",
+      "sha256": "ff1c2166fce2808de15be00f16e19151e1aa009d78a926102723f5018226a36c"
+    },
+    {
+      "path": "jewellery-store/scripts/migrate-test-db.ts",
+      "sha256": "c869f4e576ab5777c6e1a6f2e74aaec3f780e972dd2e97e6179a0349c29d2192"
+    },
+    {
+      "path": "jewellery-store/scripts/test-preview.ts",
+      "sha256": "eeb0539126aa052ea5eebd725ba0f9d145ca0cb08155a5a93164ffb810b4b891"
+    },
+    {
+      "path": "jewellery-store/scripts/verify-build.mjs",
+      "sha256": "e95e5f61a29ffb9356520216fefb35ede6576c8d776413eb4bc6207d93a440ca"
+    }
+  ]
+}

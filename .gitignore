@@ -1,0 +1,24 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+.DS_Store
+
+**/.data/
+**/.update-backups/
+
+# Private configuration and backups
+.env
+.env.*
+!.env.example
+**/.data/
+*.dump
+*.backup
+*.zip
+.pgpass
+pgpass.conf
+/jewellery-store/

@@ -1,0 +1,15 @@
+I am resuming an existing jewellery commerce project from another ChatGPT Work profile and Windows system. Treat the attached source as the existing project, not a request to rebuild it.
+
+Read PROJECT-HANDOVER.md, README.md, VALIDATION.md, ACCOUNTS-EMAILS-RETURNS-UPDATE.md and both .env.example files before changing anything. Inspect package.json, railway.json and Dockerfile.api. Preserve implemented behavior, applied migration files and user data.
+
+Do not use the brand name in chat. Keep the jewellery-only Ivory & Antique Gold design and the architecture: Astro + React static storefront on Cloudflare Pages, Node 24/Fastify API on Railway, Railway PostgreSQL and Cloudflare R2 product images. Keep costs low; no Redis or separate worker service is currently needed.
+
+Accounts, verified guest-order linking, local/email-provider outbox, full-order returns/refund review, guest COD and Razorpay TEST checkout are implemented. Razorpay credentials were deferred. No cloud deployment or live payment enablement has been verified. Historical validation passed 82 tests and generated 21 pages; rerun appropriate checks in your environment rather than assuming they ran here.
+
+First help me restore the project on this Windows machine, using the restored database if I have supplied one privately. Do not reseed or create another admin on a restored database. Actual .env files, database backups and uploaded images are transferred separately and must not be requested in chat. Astro installs through npm.cmd ci; it does not need a separate global installation.
+
+After local restoration is verified, continue the next milestone: prepare/deploy a test environment through GitHub, Railway, Cloudflare Pages/R2 and Resend. Keep ORDERS_MODE=test and RAZORPAY_MODE=disabled until test credentials are configured. Do not silently enable live payments. Account cookie behavior needs real-browser hosted testing, preferably with storefront/API subdomains under the same HTTPS parent domain. Complete reviewable configuration and necessary code fixes before asking for missing account/domain details or approval.
+
+My new project path: [I will fill this in]
+Database restoration status: [restored existing data / new empty development database]
+Cloud account/repository/domain setup status: [I will fill this in]

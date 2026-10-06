@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Collections from '../components/Collections.astro';
+import Community from '../components/Community.astro';
+import Catalogue from '../components/Catalogue';
+import ProductCard from '../components/ProductCard';
+import { buildCatalogue, buildFacets } from '../lib/catalogue-build';
+const [products,facets]=await Promise.all([buildCatalogue(),buildFacets()]);
+---
+<Layout><Collections/><div class="page-section section-heading catalogue-title"><div><p class="eyebrow">Find your next favourite</p><h1>Jewellery, your way</h1></div><a class="text-button" href="/shop/">View all jewellery →</a></div><Catalogue initial={products} facets={facets} client:load/><Community/><section class="page-section"><div class="section-heading"><h2>Featured jewellery</h2><a href="/shop/">View all →</a></div><div class="product-grid wishlist-grid">{products.slice(0,4).map(product=><ProductCard product={product} client:load/>)}</div></section></Layout>

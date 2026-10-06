@@ -1,0 +1,11 @@
+---
+import Header from '../components/Header';
+import Offers from '../components/Offers';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { usingSamples } from '../lib/catalogue-build';
+const {title='Jewellery for everyday moments',description='Explore jewellery, save your favourites and find your next everyday piece.',noindex=false}=Astro.props;
+const name=import.meta.env.PUBLIC_STORE_NAME||'Jewellery Store';
+const canonical=new URL(Astro.url.pathname,Astro.site||Astro.url.origin).toString();
+---
+<!doctype html><html lang="en-IN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>{title} · {name}</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/><meta name="theme-color" content="#fffaf3"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:type" content="website"/>{(noindex||usingSamples)&&<meta name="robots" content="noindex,nofollow"/>}<slot name="head"/></head><body><a class="skip-link" href="#main">Skip to content</a>{usingSamples&&<div class="sample-banner">Offline design preview · sample catalogue · checkout requires a running API</div>}<Offers client:load/><Header name={name} client:load/><main id="main"><slot/></main><Footer/></body></html>

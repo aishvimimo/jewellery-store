@@ -1,0 +1,41 @@
+{
+  "name": "@store/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --import tsx --watch src/server.ts",
+    "build": "tsup",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts",
+    "db:migrate": "node --import tsx src/migrate.ts",
+    "db:seed": "node --import tsx src/seed.ts",
+    "db:migrate:production": "node dist/migrate.js",
+    "admin:create": "node --import tsx src/admin-cli.ts",
+    "admin:reset-password": "node --import tsx src/admin-cli.ts --reset",
+    "admin:create:production": "node dist/admin-cli.js",
+    "admin:reset-password:production": "node dist/admin-cli.js --reset"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1146.0",
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/cors": "^11.1.0",
+    "@fastify/helmet": "^13.0.2",
+    "@fastify/multipart": "^9.4.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@store/contracts": "*",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.3",
+    "fastify": "^5.12.5",
+    "pg": "^8.16.3",
+    "sharp": "^0.34.5",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.15.5",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6"
+  }
+}

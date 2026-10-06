@@ -1,0 +1,261 @@
+[
+  {
+    "id": "product-1",
+    "slug": "tulip-bloom-box",
+    "name": "Tulip Bloom Box",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "jewellery-sets"
+    ],
+    "images": [
+      "/assets/42f64ac4f1078a5d.webp",
+      "/assets/fe2681ded92355a9.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-1",
+        "sku": "SAMPLE-001",
+        "label": "Default",
+        "pricePaise": 79900,
+        "compareAtPaise": 119900,
+        "colour": "Gold",
+        "material": "Alloy",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-2",
+    "slug": "traditional-evil-eye-bangle",
+    "name": "Traditional Evil Eye Bangle",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "bracelets"
+    ],
+    "images": [
+      "/assets/c21e5a8b1bdb6544.webp",
+      "/assets/913f75f64dee37d8.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-2",
+        "sku": "SAMPLE-002",
+        "label": "Default",
+        "pricePaise": 33900,
+        "compareAtPaise": 98000,
+        "colour": "Blue",
+        "material": "Copper",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-3",
+    "slug": "tulip-crystal-vine-bracelet-pink",
+    "name": "Tulip Crystal Vine Bracelet - Pink",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "bracelets"
+    ],
+    "images": [
+      "/assets/e0eb5cde30ba3b4f.webp",
+      "/assets/dbce3e6c3284879f.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-3",
+        "sku": "SAMPLE-003",
+        "label": "Default",
+        "pricePaise": 51900,
+        "compareAtPaise": 103900,
+        "colour": "Gold",
+        "material": "Copper",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-4",
+    "slug": "groovy-thing-ring-and-necklace-set",
+    "name": "Groovy Thing Ring And Necklace Set",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "jewellery-sets"
+    ],
+    "images": [
+      "/assets/bbcd28df9e390784.webp",
+      "/assets/068139b639e68de3.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-4",
+        "sku": "SAMPLE-004",
+        "label": "Default",
+        "pricePaise": 64900,
+        "compareAtPaise": 129900,
+        "colour": "Silver",
+        "material": "Copper with 14K gold plating",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-5",
+    "slug": "afterglow-muse-bracelet-and-earrings-set",
+    "name": "Afterglow Muse Bracelet And Earrings Set",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "jewellery-sets"
+    ],
+    "images": [
+      "/assets/1567bb851a3dec60.webp",
+      "/assets/6f76e7e7a68a78e4.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-5",
+        "sku": "SAMPLE-005",
+        "label": "Default",
+        "pricePaise": 84900,
+        "compareAtPaise": 169900,
+        "colour": "Gold",
+        "material": "Beads",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-6",
+    "slug": "millenia-dancing-swan-necklace",
+    "name": "Millenia Dancing Swan Necklace",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "necklaces"
+    ],
+    "images": [
+      "/assets/20ef9597d34a2e64.webp",
+      "/assets/dce85e9d511a601d.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-6",
+        "sku": "SAMPLE-006",
+        "label": "Default",
+        "pricePaise": 34900,
+        "compareAtPaise": 99000,
+        "colour": "Rose Gold",
+        "material": "Stainless Steel",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-7",
+    "slug": "sweetheart-ros-curve-ring",
+    "name": "Sweetheart Ros\u00e9 Curve Ring",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "rings"
+    ],
+    "images": [
+      "/assets/ca4f90a4e845c808.webp",
+      "/assets/31d876b0c5231918.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-7",
+        "sku": "SAMPLE-007",
+        "label": "Default",
+        "pricePaise": 39900,
+        "compareAtPaise": 79900,
+        "colour": "Silver",
+        "material": "Stainless Steel",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-8",
+    "slug": "linked-by-love-couple-bracelets",
+    "name": "Linked by Love Couple Bracelets",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "bracelets"
+    ],
+    "images": [
+      "/assets/e3eed981dcdde5d6.webp",
+      "/assets/e39b619ffeca9ca4.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-8",
+        "sku": "SAMPLE-008",
+        "label": "Default",
+        "pricePaise": 79900,
+        "compareAtPaise": 129900,
+        "colour": "Gold",
+        "material": "Steel",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-9",
+    "slug": "moon-stone-healing-silver-chain",
+    "name": "Moon Stone Healing Silver Chain",
+    "description": "A jewellery piece selected for the sample catalogue. Replace this description with verified material, size and care details before launch.",
+    "categories": [
+      "necklaces"
+    ],
+    "images": [
+      "/assets/4c33fd4fbf33961b.webp",
+      "/assets/aa6f72b3cbc956b5.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-9",
+        "sku": "SAMPLE-009",
+        "label": "Default",
+        "pricePaise": 59900,
+        "compareAtPaise": 108000,
+        "colour": "Silver",
+        "material": "Stainless Steel",
+        "gender": "For Her",
+        "stock": 12
+      }
+    ]
+  },
+  {
+    "id": "product-10",
+    "slug": "leafy-affair-pendant-set",
+    "name": "Leafy Affair Pendant Set",
+    "description": "Sample pendant set. Confirm specifications and replace sample imagery before publishing.",
+    "categories": [
+      "jewellery-sets"
+    ],
+    "images": [
+      "/assets/0acaf5accf847cb9.webp"
+    ],
+    "variants": [
+      {
+        "id": "variant-10",
+        "sku": "SAMPLE-010",
+        "label": "Default",
+        "pricePaise": 56900,
+        "compareAtPaise": 94900,
+        "colour": "Gold",
+        "material": "Alloy",
+        "gender": "Women",
+        "stock": 8
+      }
+    ]
+  }
+]

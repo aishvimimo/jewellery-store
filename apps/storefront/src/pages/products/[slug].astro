@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductDetail from '../../components/ProductDetail';
+import ProductCard from '../../components/ProductCard';
+import { buildCatalogue } from '../../lib/catalogue-build';
+export async function getStaticPaths(){const products=await buildCatalogue();return products.map(product=>({params:{slug:product.slug},props:{product,related:products.filter(p=>p.id!==product.id).slice(0,4)}}));}
+const {product,related}=Astro.props;
+const data={ '@context':'https://schema.org','@type':'Product',name:product.name,description:product.description,image:product.images.map((src:string)=>new URL(src,Astro.site||Astro.url.origin).toString()),sku:product.variants[0].sku,
+ offers:{'@type':'Offer',priceCurrency:'INR',price:(product.variants[0].pricePaise/100).toFixed(2),availability:product.variants[0].stock?'https://schema.org/InStock':'https://schema.org/OutOfStock',url:Astro.url.toString()} };
+---
+<Layout title={product.name} description={product.description}><script slot="head" type="application/ld+json" set:html={JSON.stringify(data).replaceAll('<','\\u003c')}/><div class="breadcrumbs"><a href="/">Home</a> / <a href="/shop/">Jewellery</a> / {product.name}</div><ProductDetail initial={product} client:load/><section class="page-section"><h2>You may also like</h2><div class="product-grid wishlist-grid">{related.map((p:any)=><ProductCard product={p} client:load/>)}</div></section></Layout>
