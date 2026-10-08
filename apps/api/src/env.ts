@@ -7,7 +7,7 @@ const schema=z.object({
   DATABASE_URL:z.string().url(), DATABASE_SSL:z.enum(['disable','require']).default('disable'),
   DB_POOL_MAX:z.coerce.number().int().min(1).max(20).default(5),
   CUSTOMER_SESSION_HOURS:z.coerce.number().int().min(1).max(168).default(24),CUSTOMER_COOKIE_SAMESITE:z.enum(['lax','none']).default('lax'),
-  EMAIL_DRIVER:z.enum(['local','resend','disabled']).default('local'),EMAIL_SITE_URL:z.string().url().default('http://localhost:4321'),EMAIL_FROM:z.string().email().default('store@example.test'),RESEND_API_KEY:z.string().optional(),EMAIL_ENCRYPTION_KEY:z.string().regex(/^[a-f0-9]{64}$/).optional(),RETURN_WINDOW_DAYS:z.coerce.number().int().min(1).max(90).default(14),
+  EMAIL_DRIVER:z.enum(['local','resend','disabled']).default('local'),EMAIL_SITE_URL:z.string().url().default('http://localhost:4321'),EMAIL_FROM:z.string().email().default('store@example.test'),RESEND_API_KEY:z.string().optional(),EMAIL_TEST_RECIPIENT:z.string().trim().email().optional(),EMAIL_ENCRYPTION_KEY:z.string().regex(/^[a-f0-9]{64}$/).optional(),RETURN_WINDOW_DAYS:z.coerce.number().int().min(1).max(90).default(14),
   ADMIN_SESSION_HOURS:z.coerce.number().int().min(1).max(24).default(8),
   ADMIN_COOKIE_SAMESITE:z.enum(['lax','none']).default('lax'),
   MEDIA_DRIVER:z.enum(['local','r2']).default('local'),MEDIA_LOCAL_DIR:z.string().default('.data/media'),
@@ -31,6 +31,7 @@ export function readEnv(){
   const emailUrl=new URL(env.EMAIL_SITE_URL);if(emailUrl.origin!==env.EMAIL_SITE_URL||!origins.includes(emailUrl.origin))throw new Error('EMAIL_SITE_URL must be an exact allowed storefront origin');
   if(env.NODE_ENV==='production'&&(env.EMAIL_DRIVER==='local'||!env.EMAIL_ENCRYPTION_KEY||emailUrl.protocol!=='https:'))throw new Error('Production requires a private EMAIL_ENCRYPTION_KEY, HTTPS EMAIL_SITE_URL and EMAIL_DRIVER=resend or disabled');
   if(env.EMAIL_DRIVER==='resend'&&(!env.RESEND_API_KEY||env.EMAIL_FROM==='store@example.test'))throw new Error('Set RESEND_API_KEY and your verified EMAIL_FROM sender');
+  if(env.EMAIL_DRIVER==='resend'&&env.EMAIL_FROM.toLowerCase()==='onboarding@resend.dev'&&!env.EMAIL_TEST_RECIPIENT)throw new Error('Set EMAIL_TEST_RECIPIENT to your Resend account email for the test sender');
   if(env.ADMIN_COOKIE_SAMESITE==='none'&&env.NODE_ENV!=='production')throw new Error('SameSite=None requires production HTTPS');
   if(env.MEDIA_DRIVER==='r2'&&!env.MEDIA_PUBLIC_URL)throw new Error('MEDIA_PUBLIC_URL is required for R2');
   if(env.NODE_ENV==='production'&&env.MEDIA_PUBLIC_URL&&!env.MEDIA_PUBLIC_URL.startsWith('https://'))throw new Error('Production media URLs require HTTPS');

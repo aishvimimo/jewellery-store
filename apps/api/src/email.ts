@@ -5,10 +5,13 @@ import { z } from 'zod';
 import * as s from './schema.js';
 import { CommerceError } from './quote.js';
 import { money } from '@store/contracts';
-export type EmailOptions={driver:'local'|'resend'|'disabled',siteUrl:string,encryptionKey:string,from:string,apiKey?:string,production:boolean,send?:(id:string,recipient:string,subject:string,text:string)=>Promise<string>};
+export type EmailOptions={driver:'local'|'resend'|'disabled',siteUrl:string,encryptionKey:string,from:string,apiKey?:string,production:boolean,testRecipient?:string,send?:(id:string,recipient:string,subject:string,text:string)=>Promise<string>};
 export type CommerceDb=NodePgDatabase<typeof s>;
 export type CommerceTx=Parameters<Parameters<CommerceDb['transaction']>[0]>[0];
 export function emailService(db:CommerceDb,options:EmailOptions){
+ const testRecipient=options.testRecipient?.trim().toLowerCase();
+ if(testRecipient&&!z.string().email().safeParse(testRecipient).success)throw new Error('Invalid test email recipient');
+ if(options.driver==='resend'&&options.from.toLowerCase()==='onboarding@resend.dev'&&!testRecipient)throw new Error('The Resend test sender requires a test recipient');
  const key=Buffer.from(options.encryptionKey,'hex');if(key.length!==32)throw new Error('Email encryption key must be 32 bytes');
  if(options.production&&options.driver==='local')throw new Error('Local email preview cannot run in production');
  function encrypt(text:string){const iv=randomBytes(12),cipher=createCipheriv('aes-256-gcm',key,iv);const body=Buffer.concat([cipher.update(text,'utf8'),cipher.final()]);return [iv,cipher.getAuthTag(),body].map(b=>b.toString('base64')).join('.');}
@@ -28,7 +31,7 @@ export function emailService(db:CommerceDb,options:EmailOptions){
  async function tick(){
   await generate();if(options.driver==='disabled')return;
   for(let i=0;i<10;i++){
-   const row=await db.transaction(async tx=>{const selected=(await tx.select().from(s.emailOutbox).where(and(sql`${s.emailOutbox.state} IN ('queued','processing')`,sql`${s.emailOutbox.availableAt}<=now()`)).orderBy(asc(s.emailOutbox.createdAt)).limit(1).for('update',{skipLocked:true}))[0];if(!selected)return null;
+   const row=await db.transaction(async tx=>{const selected=(await tx.select().from(s.emailOutbox).where(and(sql`${s.emailOutbox.state} IN ('queued','processing')`,sql`${s.emailOutbox.availableAt}<=now()`,testRecipient?sql`lower(trim(${s.emailOutbox.recipient}))=${testRecipient}`:undefined)).orderBy(asc(s.emailOutbox.createdAt)).limit(1).for('update',{skipLocked:true}))[0];if(!selected)return null;
     if((selected.validUntil&&selected.validUntil<=new Date())||(selected.firstAttemptAt&&Date.now()-selected.firstAttemptAt.getTime()>23*3600000)){await tx.update(s.emailOutbox).set({state:selected.validUntil&&selected.validUntil<=new Date()?'expired':'review',issue:'Expired message or uncertain delivery outside safe retry window',encryptedPayload:null}).where(eq(s.emailOutbox.id,selected.id));return {skip:true} as const;}
     await tx.update(s.emailOutbox).set({state:'processing',attempts:selected.attempts+1,firstAttemptAt:selected.firstAttemptAt??new Date(),availableAt:new Date(Date.now()+120000)}).where(eq(s.emailOutbox.id,selected.id));return {skip:false,row:selected} as const;
    });if(!row)break;if(row.skip)continue;

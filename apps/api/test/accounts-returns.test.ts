@@ -70,3 +70,24 @@ test('migration 005 preserves existing COD orders, administrators, payment sessi
 
 test('ordinary COD cancellation cannot restore stock again after approved cancellation restocking',async()=>{const proof=await place();let r=await requestReturn(proof);r=await review(r,'approve');r=await review(r,'restock');assert.equal(await stock(),12);const version=(await db.select().from(s.orders))[0].version;assert.equal((await req('PUT','/api/v1/admin/orders/'+proof.id,{version,status:'cancelled'},admin)).statusCode,200);assert.equal(await stock(),12);r=await review(r,'close');assert.equal(await stock(),12);assert.equal(r.state,'closed');});
 test('late COD collection updates an active return refund amount and invalidates stale reviews',async()=>{const proof=await place();for(const [version,status] of [[1,'confirmed'],[2,'shipped'],[3,'delivered']] as const)assert.equal((await req('PUT','/api/v1/admin/orders/'+proof.id,{version,status},admin)).statusCode,200);let r=await requestReturn(proof,'return');assert.equal(r.amountPaise,0);assert.equal((await req('PUT','/api/v1/admin/orders/'+proof.id,{version:4,status:'delivered',paymentCollected:true},admin)).statusCode,200);assert.equal((await req('POST','/api/v1/admin/returns/'+r.id+'/review',{version:r.version,action:'approve'},admin)).statusCode,409);r=await returns.detail(r.id);assert.equal(r.amountPaise,87800);r=await review(r,'approve');r=await review(r,'receive');assert.equal((await req('POST','/api/v1/admin/returns/'+r.id+'/review',{version:r.version,action:'close'},admin)).statusCode,409);r=await review(r,'manual-refund',{reference:'TEST-LATE-COLLECTION'});assert.equal(r.state,'refunded');});
+
+
+test('test recipient restriction preserves demo mail and does not starve allowed mail',async()=>{
+ const seen:string[]=[];
+ const provider=emailService(db,{driver:'resend',siteUrl:origin,encryptionKey:'a'.repeat(64),from:'onboarding@resend.dev',testRecipient:' Allowed@example.test ',production:true,send:async(_id,recipient)=>{seen.push(recipient);return 'test-provider';}});
+ for(let i=0;i<12;i++)await provider.enqueue(db,'demo-'+i,'demo@example.test','Demo','Keep this payload');
+ await provider.enqueue(db,'allowed','allowed@example.test','Allowed','Own mailbox');
+ await provider.tick();await provider.tick();
+ assert.deepEqual(seen,['allowed@example.test']);
+ const rows=await db.select().from(s.emailOutbox);
+ for(const row of rows.filter(r=>r.eventKey.startsWith('demo-'))){assert.equal(row.state,'queued');assert.equal(row.attempts,0);assert.equal(row.firstAttemptAt,null);assert.ok(row.encryptedPayload);}
+ assert.equal(rows.find(r=>r.eventKey==='allowed')!.state,'sent');
+ const unrestricted=emailService(db,{driver:'resend',siteUrl:origin,encryptionKey:'a'.repeat(64),from:'store@example.test',production:true,send:async(_id,recipient)=>{seen.push(recipient);return 'verified-provider';}});
+ await unrestricted.tick();assert.equal(seen.length,11);
+});
+
+test('Resend sandbox sender refuses to start without a valid test recipient',()=>{
+ const options={driver:'resend' as const,siteUrl:origin,encryptionKey:'a'.repeat(64),from:'onboarding@resend.dev',production:true};
+ assert.throws(()=>emailService(db,options),/requires a test recipient/);
+ assert.throws(()=>emailService(db,{...options,testRecipient:'invalid'}),/Invalid test email recipient/);
+});
